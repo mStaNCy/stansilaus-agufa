@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stansilaus Agufa — E-Commerce &amp; Search Specialist</title>
+<meta name="description" content="WooCommerce builds, WordPress landing pages, and search-driven product page optimization. Case studies from Attic and Prestige Brands Kenya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --ink-soft:#1B2B42;
+    --cream:#F7F5F0;
+    --paper:#FFFFFF;
+    --rust:#C2622D;
+    --rust-deep:#A14E22;
+    --sage:#7C8B73;
+    --slate:#5B6470;
+    --line:rgba(14,26,43,0.12);
+    --line-soft:rgba(14,26,43,0.07);
+    --max:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  /* ===== Skip link / focus ===== */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,240,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:var(--max);margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-weight:700;font-size:19px;
+    letter-spacing:-0.01em;
+  }
+  .logo span{color:var(--rust);}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{
+    font-size:13px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;
+    color:var(--slate);transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--rust);}
+  .nav-cta{
+    background:var(--ink);color:var(--cream);
+    padding:10px 20px;border-radius:2px;font-size:13px;font-weight:600;
+  }
+  .nav-cta:hover{background:var(--rust);}
+  .nav-toggle{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:96px 0 64px;position:relative;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:end;
+  }
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;margin-bottom:28px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--rust);}
+  .eyebrow span{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--slate);
+  }
+  .hero h1{
+    font-size:clamp(40px,6.5vw,76px);
+    margin-bottom:24px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--rust);font-weight:500;
+  }
+  .hero-sub{
+    font-size:18px;line-height:1.65;color:var(--ink-soft);max-width:480px;
+    margin-bottom:36px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink);color:var(--cream);padding:15px 28px;
+    font-size:14px;font-weight:600;border-radius:2px;
+    display:inline-flex;align-items:center;gap:8px;transition:all .25s;
+    border:1px solid var(--ink);
+  }
+  .btn-primary:hover{background:var(--rust);border-color:var(--rust);}
+  .btn-ghost{
+    padding:15px 28px;font-size:14px;font-weight:600;border-radius:2px;
+    border:1px solid var(--line);color:var(--ink);transition:all .25s;
+  }
+  .btn-ghost:hover{border-color:var(--ink);background:var(--paper);}
+
+  .hero-meta{
+    border-left:1px solid var(--line);padding-left:32px;
+    display:flex;flex-direction:column;gap:22px;
+  }
+  .hero-meta-item .mono{color:var(--slate);margin-bottom:6px;display:block;}
+  .hero-meta-item p{font-size:15px;color:var(--ink-soft);line-height:1.5;}
+
+  /* ===== TICKER (signature element) ===== */
+  .ticker-band{
+    background:var(--ink);color:var(--cream);
+    overflow:hidden;border-top:1px solid rgba(247,245,240,0.1);
+    border-bottom:1px solid rgba(247,245,240,0.1);
+  }
+  .ticker-track{
+    display:flex;white-space:nowrap;
+    animation:scroll-left 38s linear infinite;
+    padding:14px 0;
+  }
+  .ticker-track span{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    padding:0 28px;display:flex;align-items:center;gap:10px;color:rgba(247,245,240,0.85);
+  }
+  .ticker-track span b{color:var(--rust);font-weight:500;}
+  .ticker-track .sep{color:rgba(247,245,240,0.25);}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{animation:none;}
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section{padding:96px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:52px;gap:24px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);padding-bottom:28px;
+  }
+  .section-head h2{font-size:clamp(28px,4vw,42px);}
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--rust);
+    margin-bottom:10px;display:block;letter-spacing:0.08em;
+  }
+  .section-head p{color:var(--slate);max-width:380px;font-size:15px;line-height:1.55;}
+
+  /* ===== STACK SECTION ===== */
+  .stack-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    margin-bottom:96px;
+  }
+  .stack-item{
+    background:var(--cream);padding:28px 24px;
+  }
+  .stack-item .mono{color:var(--rust);display:block;margin-bottom:10px;}
+  .stack-item h4{font-size:16px;font-family:'Archivo',sans-serif;font-weight:700;margin-bottom:6px;}
+  .stack-item p{font-size:13px;color:var(--slate);line-height:1.5;}
+
+  /* ===== CASE STUDIES ===== */
+  .case{
+    border:1px solid var(--line);background:var(--paper);
+    margin-bottom:40px;overflow:hidden;
+  }
+  .case-top{
+    display:grid;grid-template-columns:1fr 1fr;
+  }
+  .case-img{
+    background:var(--ink);position:relative;overflow:hidden;
+    min-height:340px;
+  }
+  .case-img img{
+    width:100%;height:100%;object-fit:cover;object-position:top;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .case:hover .case-img img{transform:scale(1.03);}
+  .case-body{padding:44px 44px 40px;display:flex;flex-direction:column;justify-content:center;}
+  .case-tag{
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;
+  }
+  .case-tag span{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;
+    text-transform:uppercase;background:var(--cream);border:1px solid var(--line);
+    padding:5px 10px;color:var(--slate);
+  }
+  .case-body h3{font-size:28px;margin-bottom:12px;}
+  .case-body .role{font-size:13px;color:var(--rust);font-weight:700;margin-bottom:16px;
+    font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;}
+  .case-body p.desc{font-size:15px;line-height:1.65;color:var(--ink-soft);margin-bottom:22px;}
+  .case-stats{display:flex;gap:28px;margin-bottom:24px;flex-wrap:wrap;}
+  .case-stats div span{display:block;}
+  .case-stats .num{font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--ink);}
+  .case-stats .label{font-size:11px;color:var(--slate);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;}
+  .case-link{
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;
+    border-bottom:1px solid var(--ink);padding-bottom:3px;width:fit-content;
+    transition:all .2s;
+  }
+  .case-link:hover{color:var(--rust);border-color:var(--rust);gap:10px;}
+
+  .case-gallery{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border-top:1px solid var(--line);
+  }
+  .case-gallery div{background:var(--ink);overflow:hidden;aspect-ratio:16/10;}
+  .case-gallery img{width:100%;height:100%;object-fit:cover;object-position:top;
+    transition:transform .4s;cursor:zoom-in;}
+  .case-gallery img:hover{transform:scale(1.04);}
+
+  @media (max-width:880px){
+    .case-top{grid-template-columns:1fr;}
+    .case-img{min-height:240px;}
+    .case-gallery{grid-template-columns:1fr;}
+  }
+
+  /* ===== PROCESS ===== */
+  .process-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+  }
+  .process-item{position:relative;padding-top:8px;}
+  .process-item .pnum{
+    font-family:'Fraunces',serif;font-size:42px;color:var(--line);font-weight:600;
+    position:absolute;top:-18px;right:0;
+  }
+  .process-item h4{font-size:17px;margin-bottom:10px;font-family:'Archivo',sans-serif;font-weight:700;}
+  .process-item p{font-size:14px;color:var(--slate);line-height:1.6;}
+  .process-item .mono{color:var(--rust);display:block;margin-bottom:14px;}
+
+  /* ===== SKILLS BAND ===== */
+  .skills-band{background:var(--ink);color:var(--cream);padding:80px 0;}
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:48px;
+  }
+  .skills-col h4{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--rust);margin-bottom:20px;
+  }
+  .skills-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .skills-col li{
+    font-size:15px;color:rgba(247,245,240,0.88);
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .skills-col li::before{content:"—";color:rgba(247,245,240,0.3);}
+
+  /* ===== ABOUT / FIT ===== */
+  .fit-section{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;
+  }
+  .fit-section .lead{font-size:21px;line-height:1.6;font-family:'Fraunces',serif;font-weight:400;color:var(--ink-soft);}
+  .fit-section .lead em{color:var(--rust);font-style:italic;}
+  .fit-list{display:flex;flex-direction:column;gap:0;}
+  .fit-row{
+    display:grid;grid-template-columns:1fr 1.4fr;gap:24px;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .fit-row:first-child{border-top:none;}
+  .fit-row .req{font-size:14px;font-weight:700;color:var(--ink);}
+  .fit-row .ans{font-size:14px;color:var(--slate);line-height:1.6;}
+
+  @media(max-width:880px){
+    .fit-section{grid-template-columns:1fr;}
+    .fit-row{grid-template-columns:1fr;gap:6px;}
+  }
+
+  /* ===== CONTACT / FOOTER ===== */
+  .contact-section{
+    background:var(--ink);color:var(--cream);padding:110px 0 80px;
+    position:relative;
+  }
+  .contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;}
+  .contact-section h2{
+    font-size:clamp(34px,5.5vw,58px);color:var(--cream);margin-bottom:20px;
+  }
+  .contact-section h2 em{color:var(--rust);font-style:italic;}
+  .contact-section .sub{color:rgba(247,245,240,0.65);font-size:16px;max-width:440px;line-height:1.6;margin-bottom:32px;}
+  .contact-channels{display:flex;flex-direction:column;gap:18px;}
+  .contact-channels a{
+    font-family:'Fraunces',serif;font-size:24px;font-weight:500;
+    border-bottom:1px solid rgba(247,245,240,0.18);padding-bottom:14px;
+    display:flex;justify-content:space-between;align-items:center;
+    transition:color .2s;
+  }
+  .contact-channels a:hover{color:var(--rust);}
+  .contact-channels a .mono{color:rgba(247,245,240,0.4);}
+  .contact-side{
+    border-left:1px solid rgba(247,245,240,0.15);padding-left:40px;
+  }
+  .contact-side .mono{color:var(--rust);margin-bottom:14px;display:block;}
+  .contact-side p{color:rgba(247,245,240,0.75);font-size:14px;line-height:1.7;margin-bottom:24px;}
+  footer{
+    border-top:1px solid rgba(247,245,240,0.12);margin-top:64px;padding-top:28px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  }
+  footer .mono{color:rgba(247,245,240,0.4);}
+
+  @media(max-width:880px){
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-side{border-left:none;padding-left:0;border-top:1px solid rgba(247,245,240,0.15);padding-top:32px;}
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-meta{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:28px;flex-direction:row;flex-wrap:wrap;gap:28px;}
+    .stack-row{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .skills-grid{grid-template-columns:1fr;gap:36px;}
+    .nav-links{display:none;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    nav{padding:18px 20px;}
+    .hero{padding:56px 0 40px;}
+    .section{padding:64px 0;}
+    .stack-row{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .case-body{padding:32px 24px;}
+    .case-stats{gap:20px;}
+  }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(14,26,43,0.92);
+    display:none;align-items:center;justify-content:center;z-index:200;padding:40px;
+    cursor:zoom-out;
+  }
+  .lightbox.active{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;box-shadow:0 30px 80px rgba(0,0,0,0.5);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">Stansilaus<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#skills">Skills</a>
+      <a href="#fit">Why This Role</a>
+      <a href="#contact" class="nav-cta">Get In Touch</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span><span>WooCommerce &amp; WordPress Builder — Nairobi, Kenya</span></div>
+          <h1>I build stores that<br>sell, and pages that<br><em>actually rank.</em></h1>
+          <p class="hero-sub">Stansilaus Agufa. I design and build WooCommerce stores and WordPress landing pages end to end — product architecture, on-page SEO, and brand-aligned copy — for retail and distribution brands across Kenya.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary">View Case Studies →</a>
+            <a href="#contact" class="btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="mono">Currently</span>
+            <p>Building the WooCommerce storefront for Prestige Brands Kenya, a wholesale distributor of FMCG products.</p>
+          </div>
+          <div class="hero-meta-item">
+            <span class="mono">Shipped</span>
+            <p>shop.attic.ke — a live, multi-category electronics &amp; networking store, built solo from scratch.</p>
+          </div>
+          <div class="hero-meta-item">
+            <span class="mono">Stack</span>
+            <p>WordPress · WooCommerce · Elementor · Bricks-ready · Rank Math SEO · WPForms</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-band">
+    <div class="ticker-track" id="ticker">
+      <!-- duplicated by JS for seamless loop -->
+    </div>
+  </div>
+
+  <!-- STACK STRIP -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="stack-row">
+        <div class="stack-item">
+          <span class="mono">01 · Build</span>
+          <h4>WordPress + WooCommerce</h4>
+          <p>Full store setup: themes, product catalogs, categories, checkout, plugin stack.</p>
+        </div>
+        <div class="stack-item">
+          <span class="mono">02 · Optimize</span>
+          <h4>On-Page SEO</h4>
+          <p>Rank Math configuration, meta data, keyword-aligned product copy, site structure.</p>
+        </div>
+        <div class="stack-item">
+          <span class="mono">03 · Design</span>
+          <h4>Landing Pages</h4>
+          <p>Drag-and-drop page building with Elementor — Bricks Builder logic transfers directly.</p>
+        </div>
+        <div class="stack-item">
+          <span class="mono">04 · Maintain</span>
+          <h4>Backend Ops</h4>
+          <p>Security, backups, SMTP, forms, performance — the unglamorous work that keeps stores alive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-num">Selected Work</span>
+          <h2>Two stores. Two<br>different buyers.</h2>
+        </div>
+        <p>Each project required a distinct visual language and a different commercial model — retail cart-and-checkout versus B2B quote requests.</p>
+      </div>
+
+      <!-- CASE 1: shop.attic.ke -->
+      <div class="case">
+        <div class="case-top">
+          <div class="case-img">
+            <img src="assets/attic_shop_hero.png" alt="shop.attic.ke homepage, a WooCommerce electronics and networking store" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-tag"><span>WooCommerce</span><span>Live Store</span><span>Solo Build</span></div>
+            <h3>shop.attic.ke</h3>
+            <p class="role">Full build · WooCommerce store owner &amp; developer</p>
+            <p class="desc">A multi-category electronics and networking store — routers, CCTV, cabling, laptops, accessories — built from the ground up on WordPress and WooCommerce. I structured the full product taxonomy, set up search and cart logic, and configured the SEO and security plugin stack myself.</p>
+            <div class="case-stats">
+              <div><span class="num">9</span><span class="label">Product Categories</span></div>
+              <div><span class="num">100%</span><span class="label">Solo Built</span></div>
+              <div><span class="num">11</span><span class="label">Plugins Configured</span></div>
+            </div>
+            <a href="https://shop.attic.ke" target="_blank" rel="noopener" class="case-link">Visit shop.attic.ke →</a>
+          </div>
+        </div>
+        <div class="case-gallery">
+          <div><img src="assets/shop_admin_woocommerce.png" alt="WooCommerce admin panel showing plugin configuration for shop.attic.ke" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- CASE 2: attic.ke WiFi -->
+      <div class="case">
+        <div class="case-top">
+          <div class="case-img">
+            <img src="assets/attic_wifi_consumer.png" alt="attic.ke homepage, consumer WiFi landing page with illustrated hero" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-tag"><span>WordPress</span><span>Dual Audience</span><span>Landing Pages</span></div>
+            <h3>attic.ke — ISP Landing Pages</h3>
+            <p class="role">Landing page design · brand-aligned copy</p>
+            <p class="desc">The same WiFi provider needed to speak to two completely different buyers: students and home users on one side, businesses on the other. I built two distinct landing experiences from one brand system — illustrated and playful for the consumer page, bold and editorial for the business page — without fragmenting the identity.</p>
+            <div class="case-stats">
+              <div><span class="num">2</span><span class="label">Audience-Specific Pages</span></div>
+              <div><span class="num">1</span><span class="label">Unified Brand System</span></div>
+            </div>
+            <a href="https://attic.ke" target="_blank" rel="noopener" class="case-link">Visit attic.ke →</a>
+          </div>
+        </div>
+        <div class="case-gallery">
+          <div><img src="assets/attic_wifi_business.png" alt="attic.ke business plans page with bold typography hero" loading="lazy"></div>
+          <div><img src="assets/attic_admin_plugins.png" alt="WordPress plugin admin panel for attic.ke showing SEO and security setup" loading="lazy"></div>
+        </div>
+      </div>
+
+      <!-- CASE 3: Prestige Brands Kenya -->
+      <div class="case">
+        <div class="case-top">
+          <div class="case-img">
+            <img src="assets/prestige_products.png" alt="Prestige Brands Kenya products page, a B2B distribution catalog under development" loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-tag"><span>In Development</span><span>WordPress</span><span>B2B Catalog</span></div>
+            <h3>Prestige Brands Kenya</h3>
+            <p class="role">Full build · in progress</p>
+            <p class="desc">A wholesale distribution catalog for retailers and wholesalers across Kenya — cooking oil, personal care, beverages, cleaning products. Unlike a retail cart, every product routes to a "Request Quote" flow, matching how distribution buying actually works. Currently building out category logic and on-page SEO ahead of launch.</p>
+            <div class="case-stats">
+              <div><span class="num">7</span><span class="label">Product Categories</span></div>
+              <div><span class="num">B2B</span><span class="label">Quote-Based Flow</span></div>
+            </div>
+            <span class="case-link" style="opacity:0.5;cursor:default;">In development — launching soon</span>
+          </div>
+        </div>
+        <div class="case-gallery">
+          <div><img src="assets/prestige_admin.png" alt="WordPress dashboard for Prestige Brands Kenya showing dev account and plugin setup" loading="lazy"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-num">How I Work</span>
+          <h2>From brief to<br>live storefront.</h2>
+        </div>
+        <p>The same sequence whether it's a new build or an existing store that needs to convert better.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-item">
+          <span class="pnum">01</span>
+          <span class="mono">Research</span>
+          <h4>Keyword &amp; Audience</h4>
+          <p>Map what buyers actually search before touching a single page — this informs both paid targeting and on-page content.</p>
+        </div>
+        <div class="process-item">
+          <span class="pnum">02</span>
+          <span class="mono">Structure</span>
+          <h4>Catalog &amp; Categories</h4>
+          <p>Build the product taxonomy and navigation so search engines and customers find the same path to checkout.</p>
+        </div>
+        <div class="process-item">
+          <span class="pnum">03</span>
+          <span class="mono">Build</span>
+          <h4>Pages &amp; Copy</h4>
+          <p>Drag-and-drop builds in WordPress, with copy written to match brand voice and the keywords it needs to rank for.</p>
+        </div>
+        <div class="process-item">
+          <span class="pnum">04</span>
+          <span class="mono">Audit</span>
+          <h4>Monitor &amp; Refine</h4>
+          <p>Ongoing site audits — speed, meta data, broken links, plugin health — feeding back into the next round of edits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-band" id="skills">
+    <div class="wrap">
+      <div class="section-head" style="border-bottom:1px solid rgba(247,245,240,0.15);">
+        <div>
+          <span class="section-num" style="color:var(--rust);">Capabilities</span>
+          <h2 style="color:var(--cream);">What I bring<br>to the role.</h2>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-col">
+          <h4>Platform</h4>
+          <ul>
+            <li>WordPress backend administration</li>
+            <li>WooCommerce store setup &amp; management</li>
+            <li>Elementor page building (Bricks-transferable)</li>
+            <li>Plugin stack: SEO, security, forms, backups</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>Search &amp; Content</h4>
+          <ul>
+            <li>On-page SEO: meta data, keyword integration</li>
+            <li>Product page content &amp; optimization</li>
+            <li>Keyword research for paid and organic</li>
+            <li>Rank Math SEO configuration</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h4>Working Style</h4>
+          <ul>
+            <li>Brand-aligned, persuasive copywriting</li>
+            <li>Independent execution, minimal supervision</li>
+            <li>Direct collaboration with leadership on strategy</li>
+            <li>Site audits &amp; ongoing performance recommendations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIT -->
+  <section class="section" id="fit">
+    <div class="wrap">
+      <div class="fit-section">
+        <div>
+          <span class="section-num">Why This Role</span>
+          <p class="lead">This role asks for someone who can <em>build</em> the page and <em>understand</em> why it should rank — not just one or the other. That's the gap I've been working in.</p>
+        </div>
+        <div class="fit-list">
+          <div class="fit-row">
+            <span class="req">Bing Ads management</span>
+            <span class="ans">I haven't run Bing campaigns specifically yet, but I think in the same terms PPC requires — keyword intent, landing page match, conversion path — because I build the pages those campaigns send traffic to. Ready to apply that directly to Microsoft Advertising.</span>
+          </div>
+          <div class="fit-row">
+            <span class="req">WordPress + WooCommerce</span>
+            <span class="ans">Built shop.attic.ke entirely solo — catalog, categories, checkout, plugin stack. This is the part of the role I can start delivering on day one.</span>
+          </div>
+          <div class="fit-row">
+            <span class="req">Bricks Builder / page builders</span>
+            <span class="ans">I've built landing pages in Elementor at the same level of complexity Bricks requires — sections, dynamic content, responsive layouts. The builder changes; the logic of a good landing page doesn't.</span>
+          </div>
+          <div class="fit-row">
+            <span class="req">On-page SEO &amp; product copy</span>
+            <span class="ans">Configured Rank Math across two live sites and write product and category copy with keyword placement and brand voice in mind, not just one or the other.</span>
+          </div>
+          <div class="fit-row">
+            <span class="req">Independent execution</span>
+            <span class="ans">Both attic.ke properties and the Prestige build were run by me end to end, with direct check-ins to leadership rather than day-to-day oversight.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="mono" style="color:var(--rust);">Let's Talk</span>
+          <h2>Ready to manage<br>your <em>search &amp; store.</em></h2>
+          <p class="sub">Open to the E-Commerce Search Specialist role and similar WooCommerce / WordPress positions. Available to start immediately, full-time, US Eastern hours.</p>
+          <div class="contact-channels">
+            <a href="mailto:hello@example.com"><span>Email</span><span class="mono">hello@example.com</span></a>
+            <a href="https://wa.me/254700000000" target="_blank" rel="noopener"><span>WhatsApp</span><span class="mono">+254 7XX XXX XXX</span></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener"><span>LinkedIn</span><span class="mono">↗</span></a>
+            <a href="https://github.com" target="_blank" rel="noopener"><span>GitHub</span><span class="mono">↗</span></a>
+          </div>
+        </div>
+        <div class="contact-side">
+          <span class="mono">Based In</span>
+          <p>Thika, Nairobi County, Kenya — comfortable working US Eastern hours, Monday to Friday.</p>
+          <span class="mono">Available For</span>
+          <p>Bing Ads / Microsoft Advertising management, WooCommerce store builds, WordPress landing pages, on-page SEO and product copy.</p>
+        </div>
+      </div>
+      <footer>
+        <span class="mono">© 2026 Stansilaus Agufa</span>
+        <span class="mono">Built &amp; hosted on GitHub Pages</span>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<script>
+  // Ticker content, duplicated for seamless scroll
+  const tickerItems = [
+    ["LIVE", "shop.attic.ke"],
+    ["BUILD", "WooCommerce · 9 categories"],
+    ["LIVE", "attic.ke"],
+    ["BUILD", "Dual-audience landing pages"],
+    ["IN PROGRESS", "Prestige Brands Kenya"],
+    ["BUILD", "B2B catalog · 7 categories"],
+    ["STACK", "WordPress · Elementor · Rank Math"],
+  ];
+  const track = document.getElementById('ticker');
+  function renderTicker(){
+    let html = "";
+    for(let r=0;r<2;r++){
+      tickerItems.forEach(([tag,label],i)=>{
+        html += `<span><b>${tag}</b> ${label}</span><span class="sep">/</span>`;
+      });
+    }
+    track.innerHTML = html;
+  }
+  renderTicker();
+
+  // Lightbox for gallery images
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.case-gallery img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+  lightbox.addEventListener('click', ()=> lightbox.classList.remove('active'));
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape') lightbox.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
